@@ -17,6 +17,9 @@ public class Main {
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		for(ArrayList<BiomeGenBase> biomes : BiomeDictionary.typeInfoList) {
+			if(biomes == null) {
+				continue;
+			}
 			for(final BiomeGenBase biome : biomes) {
 				biome.enableRain = true;
 				biome.getSpawnableList(EnumCreatureType.creature).addAll(Arrays.asList(
