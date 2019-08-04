@@ -9,18 +9,17 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraftforge.common.BiomeDictionary;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 @Mod(modid = "jadedoceanspawns", name = "JadedOceanSpawns", version = "@VERSION@")
 public class Main {
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		for(ArrayList<BiomeGenBase> biomes : BiomeDictionary.typeInfoList) {
-			if(biomes == null) {
-				continue;
-			}
-			for(final BiomeGenBase biome : biomes) {
+		for(BiomeDictionary.Type type : BiomeDictionary.Type.values()) {
+			for(BiomeGenBase biome : BiomeDictionary.getBiomesForType(type)) {
+				if(biome == null) {
+					continue;
+				}
 				biome.enableRain = true;
 				biome.getSpawnableList(EnumCreatureType.creature).addAll(Arrays.asList(
 					new SpawnListEntry(EntitySheep.class, 8, 1, 4),
