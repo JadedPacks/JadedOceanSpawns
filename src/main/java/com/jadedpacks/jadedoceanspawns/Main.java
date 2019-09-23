@@ -41,7 +41,7 @@ public class Main {
 				} catch(Exception ignored) {
 				}
 				try {
-					biome.getSpawnableList(EnumCreatureType.monster).add(new SpawnListEntry(Class.forName("ganymedes01.headcrumbs.entity.EntityCelebrity"), 2, 1, 2));
+					biome.getSpawnableList(EnumCreatureType.monster).add(new SpawnListEntry(Class.forName("ganymedes01.headcrumbs.entity.EntityHuman"), 2, 1, 2));
 				} catch(Exception ignored) {
 				}
 			}
