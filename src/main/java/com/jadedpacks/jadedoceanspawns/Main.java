@@ -17,6 +17,9 @@ public class Main {
 	public void postInit(FMLPostInitializationEvent event) {
 		for(BiomeDictionary.Type type : BiomeDictionary.Type.values()) {
 			for(BiomeGenBase biome : BiomeDictionary.getBiomesForType(type)) {
+				if(type != BiomeDictionary.Type.OCEAN) {
+                    continue;
+				}
 				if(biome == null) {
 					continue;
 				}
